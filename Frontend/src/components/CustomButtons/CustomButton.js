@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 
+
 const CustomButton = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor }) => {
   return (
     <Pressable 

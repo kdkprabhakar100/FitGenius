@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 import Workouts from "../data/workouts.js";
 
+
 const FitnessCards = () => {
   // const FitnessData = fitness;
   const FitnessData = Workouts()
