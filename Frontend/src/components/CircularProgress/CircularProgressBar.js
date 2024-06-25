@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, Text } from 'react-native';
 import Svg, { Circle, G, Path, Text as SvgText } from 'react-native-svg';
