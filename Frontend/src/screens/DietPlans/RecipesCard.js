@@ -9,7 +9,8 @@ const RecipesCard = ({title, recipe}) => {
     console.log('pressed')
     navigation.navigate('NutritionFacts', { recipe })
   }
-  // console.log('here',recipe.calories)
+  //console.log('here',recipe.calories)
+ 
   return (
         <View style={styles.recipeItem}>
             <View style={styles.headingContainer}>
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e8e8e8',
     borderRadius: 5,
-    backgroundColor: 'white',
+    backgroundColor: '#f5fffa',
     position: 'relative'
   },
   headingContainer: {
@@ -92,5 +93,6 @@ const styles = StyleSheet.create({
     right: 10
   }
 });
+
 
 export default RecipesCard;
