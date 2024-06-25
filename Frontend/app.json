@@ -12,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
     "plugins": [
       [
         "@config-plugins/react-native-ble-plx",
