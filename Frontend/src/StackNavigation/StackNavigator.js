@@ -37,7 +37,7 @@ const Stack = createNativeStackNavigator()
 const StackNavigator = () => {
     return (
       <Stack.Navigator>
-        <Stack.Screen name='LoginScreen' component={Login} />
+        <Stack.Screen name='LoginScreen' component={Login}   />
         <Stack.Screen name='SignUp' component={SignUp} />
         <Stack.Screen name='EmailInput' component={EmailInput} />
         <Stack.Screen name='ResetPassword' component={ResetPassword} />

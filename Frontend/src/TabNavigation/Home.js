@@ -41,7 +41,7 @@ useEffect(() => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
-        <Header name={name} />
+       <Header name={name} />
         <View style={styles.banner}>
           <Banner
             imageBackground={exerciseGradientBanner}
@@ -55,8 +55,7 @@ useEffect(() => {
             bannerImage={dietBannerImage}
             title={titles.diet}
             type='DIET'
-            // screenName='MaintainCalorie'
-             screenName='Diet'
+            screenName='Diet'
 
           />
           <Banner
@@ -79,9 +78,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: ScreenHeight,
+   
   },
   banner: {
-    borderWidth: 1,
+    borderWidth: 5,
     paddingHorizontal: 16,
     flex: 1,
     width: '100%',

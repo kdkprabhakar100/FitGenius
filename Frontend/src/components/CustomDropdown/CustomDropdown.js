@@ -47,14 +47,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#e8e8e8',
         width: '100%',
-        borderRadius: 5,
+        borderRadius: 15,
         marginVertical: 4
       },
       // container_userparameters: {
       //   width: '48%'
       // },
       label: {
-        fontSize: 16,
+        fontSize: 15,
         color: 'white'
       },
       labelList:{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
       },
       optionContainer: {
-        elevation: 1000
+        elevation: 100
       },
       optionItem: {
         width: '85%',
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         borderBottomWidth: 0.5,
-        borderColor: '#8e8e8e',
+        borderColor: 'pink',
       }
 })
 

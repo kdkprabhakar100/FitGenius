@@ -17,7 +17,6 @@ const WorkoutPlan = () => {
   const [dayCountdown, setDayCountdown] = useState(28)
   const [userid, setUserID] = useState('')
 
-  
   const getCompletedWorkoutLength = async () => {
     let parsedData;
     let data = await AsyncStorage.getItem('user')

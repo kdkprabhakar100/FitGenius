@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 2,
     justifyContent: 'center',
-    gap: 4,
+    gap: 14,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.white,
     marginRight: 20
@@ -68,11 +68,12 @@ const styles = StyleSheet.create({
   image_EXERCISE: {
     width: '120%',
     height: '140%',
-    bottom: -10,
-    left: -20,
+    bottom: -15,
+    left: -5,
   },
   imageContainer_DIET: {
-    height: 120
+    height: 120,
+    left: 2,
   },
   imageContainer_PROGRESS: {
     height: 120

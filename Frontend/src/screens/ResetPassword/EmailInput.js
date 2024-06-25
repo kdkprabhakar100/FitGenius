@@ -35,9 +35,10 @@ const EmailInput = ({ }) => {
       <CustomizedInput
         value={email}
         setValue={setEmail}
-        placeholder="Email"
+        placeholder="Email" 
         style={styles.input}
         keyboardType="email-address"
+        
       />
       <CustomButton text="Continue" onPress={onContinue} />
     </View>
@@ -63,14 +64,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: 'white'
   },
+  //this ?
   input: {
     backgroundColor: 'white',
     width: '100%',
     borderColor: '#e8e8e8',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 15,
     padding: 10,
-    marginVertical: 10,
+    marginVertical: 100,
   },
 });
 

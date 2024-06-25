@@ -7,6 +7,7 @@ const CustomButton = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor }) => 
         style={[
             styles.container, 
             styles[`container_${type}`], 
+
             bgColor ? {backgroundColor: bgColor} : {}
         ]}
         onPress={onPress}
@@ -20,9 +21,10 @@ const CustomButton = ({ onPress, text, type = 'PRIMARY', bgColor, fgColor }) => 
         >
             {text}
         </Text>
+        
     </Pressable>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -31,28 +33,36 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         alignItems: 'center',
         borderRadius: 5,
+        
+        
     },
     container_PRIMARY: {
         backgroundColor: '#3b71f3'
     },
-    container_SECONDARY: {
-        borderColor: '#3b71f3',
-        borderWidth: 2
-    },
+    //Not Required
+    // container_SECONDARY: {
+    //    borderColor: '#3b71f3',
+    //    borderWidth: 2
+    // },
     container_TERTIARY: {
 
     },
-    text: {
+    text: { 
     },
     text_PRIMARY: {
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize:15
+        
     },
     text_TERTIARY: {
-        color: 'white'
+        color: 'white',
+       
     },
+    //This too?
     text_SECONDARY: {
-        color: '#3b71f3'
+        color: '#3b71f3',
+        
     }
 })
 

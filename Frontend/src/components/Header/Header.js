@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 18,
         color: '#b3b3b3'
     },
     subHeading: {
         fontSize: 10,
-        opacity: 0.6,
+        opacity: 0.8,
         color: '#b3b3b3'
     },
 })
