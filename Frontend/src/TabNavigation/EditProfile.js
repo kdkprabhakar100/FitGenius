@@ -1,20 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 import profile from '../../assets/profile.jpg';
+import axios from 'axios';
 
 const EditProfile = () => {
-  const [name, setName] = useState('John Doe');
-  const [email, setEmail] = useState('johndoe@example.com');
-  const [phone, setPhone] = useState('123-456-7890');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleSaveProfile = () => {
-    // Placeholder for save logic
-    Alert.alert('Profile Updated', 'Changes saved successfully!');
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.post('http://192.168.18.8:4000/fetch-user', {
+        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+      });
+
+      if (response.status === 200) {
+        const userData = response.data;
+        setName(userData.name);
+        setEmail(userData.email);
+        setPhone(userData.phonenumber);
+      } else {
+        throw new Error('Failed to fetch user data');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error.message);
+      Alert.alert('Error', 'Failed to fetch user data. Please try again later.');
+    }
   };
 
-  const handleDeleteAccount = () => {
-    // Placeholder for delete logic
-    Alert.alert('Account Deleted', 'Your account has been deleted.');
+  const handleSaveProfile = async () => {
+    try {
+      const response = await axios.post('http://192.168.18.8:4000/update-user', {
+        name,
+        email,
+        phonenumber: phone,
+      });
+
+      if (response.status === 200) {
+        Alert.alert('Profile Updated', 'Changes saved successfully!');
+      } else {
+        throw new Error('Failed to update profile');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error.message);
+      Alert.alert('Update Failed', 'Failed to update profile. Please try again later.');
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await axios.post('http://192.168.18.8:4000/delete-user', {
+        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+      });
+
+      if (response.status === 200) {
+        Alert.alert('Account Deleted', 'Your account has been deleted.');
+        // Optionally, you can navigate the user to a different screen after deletion
+      } else {
+        throw new Error('Failed to delete account');
+      }
+    } catch (error) {
+      console.error('Error deleting account:', error.message);
+      Alert.alert('Delete Failed', 'Failed to delete account. Please try again later.');
+    }
   };
 
   return (
@@ -38,7 +90,7 @@ const EditProfile = () => {
         <TextInput
           style={styles.input}
           value={email}
-          onChangeText={setEmail}
+          editable={false} // Make email non-editable
           placeholder="Enter your email"
           keyboardType="email-address"
         />
