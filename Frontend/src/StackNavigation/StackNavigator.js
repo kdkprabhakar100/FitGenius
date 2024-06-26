@@ -31,7 +31,7 @@ import CongratulationScreen from '../components/Congratulations/CongratulationSc
 import RecipesCard from '../screens/DietPlans/RecipesCard'
 import WorkoutFeedback from '../screens/WorkoutPrograms/WorkoutFeedback'
 import ScanDevices from '../bluetooth_scan/ScanDevices'
-
+import EditProfile from '../TabNavigation/EditProfile'
 const Stack = createNativeStackNavigator()
 
 const StackNavigator = () => {
@@ -69,6 +69,7 @@ const StackNavigator = () => {
         <Stack.Screen name='RecipeCard' component={RecipesCard} />
         <Stack.Screen name='NutritionFacts' component={NutritionFacts} />
         <Stack.Screen name='CongratulationScreen' component={CongratulationScreen} />
+        <Stack.Screen name='EditProfile' component={EditProfile} />
       </Stack.Navigator>
     )
 }

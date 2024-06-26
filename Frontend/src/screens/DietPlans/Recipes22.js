@@ -70,7 +70,7 @@ const Recipess = ({calculatedCalorie}) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [calories, setCalories] = useState(calculatedCalorie)
-  // const [minCalories, setMinCalories] = useState(calculatedCalorie-200)
+  //const [minCalories, setMinCalories] = useState(calculatedCalorie-200)
   // const [maxCalories, setMaxCalories] = useState(calculatedCalorie+200)
 
   const [selectedHealthLabel, setSelectedHealthLabel] = useState([])

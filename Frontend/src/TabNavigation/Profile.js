@@ -30,7 +30,9 @@ const Profile = () => {
     await AsyncStorage.removeItem('userInputs');
     navigation.navigate('LoginScreen');
   };
-
+  const handleEditProfile = () => {
+    navigation.navigate('EditProfile');
+  };
   return (
     <View style={[styles.container, { backgroundColor: enableDarkTheme ? '#181818' : '#fff' }]}>
       <View style={styles.upperView}>
@@ -42,7 +44,7 @@ const Profile = () => {
       <View style={styles.lowerView}>
         {/* Edit Profile Button */}
         <Pressable
-          onPress={() => console.warn('Pressed')}
+           onPress={handleEditProfile} 
           style={({ pressed }) => [
             {
               backgroundColor: pressed ? '#22828' : enableDarkTheme ? '#383838' : '#e0e0e0',
