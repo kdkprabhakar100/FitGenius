@@ -40,3 +40,4 @@ const usersch = new mongoose.Schema({
 })
 const usermodel = mongoose.model('user', usersch)
 module.exports = usermodel
+

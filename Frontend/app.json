@@ -12,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+  
     "plugins": [
       [
         "@config-plugins/react-native-ble-plx",
@@ -35,6 +36,7 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+        
       },
       "permissions": [
         "android.permission.BLUETOOTH",
@@ -47,4 +49,5 @@
       "favicon": "./assets/favicon.png"
     }
   }
+  
 }
