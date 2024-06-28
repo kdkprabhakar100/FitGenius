@@ -25,6 +25,7 @@ const edamam2Sch = new mongoose.Schema({
   totalDaily: { Object },
   digest: [Object],
   instructionLines: Array,
+  
   summary: String,
   tags: Array
 }

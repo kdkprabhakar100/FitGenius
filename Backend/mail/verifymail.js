@@ -42,7 +42,7 @@ const generateEmailTemplate = (name, otp) => {
           font-family: Arial, sans-serif;
         }
         .container {
-          max-inline-size: 600px;
+          max-width: 600px;
           margin: 0 auto;
           padding: 20px;
           border: 1px solid #ccc;
@@ -68,13 +68,13 @@ const generateEmailTemplate = (name, otp) => {
     <body>
     <div class="content">
         <p>Dear ${name},</p>
-        <p>Thank you for joining our Home Workout and Diet Generator App-FitGenius!</p>
+        <p>Thank you for joining our Home Workout and Diet Generator App!</p>
         <p>Your OTP (One-Time Password) is: <strong>${otp}</strong></p>
         <p>We are thrilled to have you on board and look forward to enhance your fitness journey.</p>
       </div>
       <div class="footer">
         <p>Best of luck,</p>
-        <p>FitGenius</p>
+        <p>Home Workout and Diet Generator App</p>
       </div>
       </div>
     </body>

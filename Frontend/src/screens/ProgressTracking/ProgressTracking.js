@@ -17,8 +17,8 @@ const WorkoutGraph = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [workoutData, setWorkoutData] = useState([])
   const chartConfig = {
-    backgroundGradientFrom: '#F8FAF8',
-    backgroundGradientTo: '#EDFCE7',
+    backgroundGradientFrom: 'skyblue',
+    backgroundGradientTo: 'beige',
     color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
     style: {

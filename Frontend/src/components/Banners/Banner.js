@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, Pressable } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-
 import { useNavigation } from '@react-navigation/native';
 
 const colors = {
@@ -9,15 +8,14 @@ const colors = {
   grey: '#b3b3b3',
 };
 
-const Banner = ({imageBackground, title, bannerImage, type, screenName}) => {
-
-  const navigation = useNavigation()
+const Banner = ({ imageBackground, title, bannerImage, type, screenName, backgroundColor }) => {
+  const navigation = useNavigation();
 
   return (
-    <ImageBackground style={styles.bannerContainer} source={imageBackground}>
+    <ImageBackground style={[styles.bannerContainer, { backgroundColor }]} source={imageBackground}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Pressable style={styles.showMore} onPress={() => navigation.navigate(screenName) }>
+        <Pressable style={styles.showMore} onPress={() => navigation.navigate(screenName)}>
           <Text style={styles.showMoreText}>Show more</Text>
           <Entypo name="chevron-right" size={24} color={colors.grey} />
         </Pressable>
@@ -37,17 +35,18 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     borderRadius: 5,
+    overflow: 'hidden', // Ensures the background color fills the rounded corners
   },
   titleContainer: {
     flex: 2,
     justifyContent: 'center',
-    gap: 4,
+    gap: 14,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.white,
-    marginRight: 20
+    marginRight: 20,
   },
   showMore: {
     flexDirection: 'row',
@@ -68,14 +67,15 @@ const styles = StyleSheet.create({
   image_EXERCISE: {
     width: '120%',
     height: '140%',
-    bottom: -10,
-    left: -20,
+    bottom: -15,
+    left: -5,
   },
   imageContainer_DIET: {
-    height: 120
+    height: 120,
+    left: 2,
   },
   imageContainer_PROGRESS: {
-    height: 120
+    height: 120,
   },
   image_DIET: {
     width: '170%',
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
     height: '150%',
     position: 'absolute',
     left: -100,
-    top: -40
-  }
+    top: -40,
+  },
 });
 
 export default Banner;

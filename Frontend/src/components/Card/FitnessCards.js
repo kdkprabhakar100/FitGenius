@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 import Workouts from "../data/workouts.js";
 
+
 const FitnessCards = () => {
   // const FitnessData = fitness;
   const FitnessData = Workouts()
@@ -25,7 +26,7 @@ const FitnessCards = () => {
           key={key}
         >
           <Image
-            style={{ width: "95%", height: 140, borderRadius: 7 }}
+            style={{ width: "95%", height: 140, borderRadius: 17 }}
             source={{ uri: item.image }}
           />
           <Text
@@ -35,7 +36,7 @@ const FitnessCards = () => {
               fontSize: 16,
               fontWeight: "bold",
               left: 20,
-              top: 20,
+              top: 10,
             }}
           >
             {item.name}

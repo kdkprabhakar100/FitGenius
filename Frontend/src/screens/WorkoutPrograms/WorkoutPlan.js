@@ -5,8 +5,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useNavigation } from '@react-navigation/native'
 import { default_ip_address } from '../../constant/constant'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTheme } from  '../../TabNavigation/ThemeContext';
 // import { ProgressBarAndroid } from 'react-native';
 const WorkoutPlan = () => {
+  const { enableDarkTheme, toggleTheme } = useTheme();
   const navigation = useNavigation()
   const [completedDays, setCompletedDays] = useState(1);
   const [currentWeek, setCurrentWeek] = useState(1);
@@ -17,7 +19,6 @@ const WorkoutPlan = () => {
   const [dayCountdown, setDayCountdown] = useState(28)
   const [userid, setUserID] = useState('')
 
-  
   const getCompletedWorkoutLength = async () => {
     let parsedData;
     let data = await AsyncStorage.getItem('user')

@@ -4,12 +4,12 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LinearRegression
 
-#Load dataset
-data_file_path = 'D:\\fitnesss_app\\fitness_app2.0\\fitnessapp_withml\\Backend\\pythonscript\\hamro_data.csv'
+#Load dataset 
+data_file_path = '/Users/manushipaudel/Desktop/FITNESS/FitnessApp/Backend/dataset.csv'
 df = pd.read_csv(data_file_path)
 
 #Encoding categorical columns
-encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
+encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
 categorical_cols = df.select_dtypes('object').columns.tolist()
 encoder.fit(df[categorical_cols])
 encoded_cols = list(encoder.get_feature_names_out(categorical_cols))

@@ -11,7 +11,7 @@ const cors = require('cors')
 const path = require('path')
 const sendverifymail = require('./mail/verifymail')
 const spawner = require('child_process').spawn
-
+const UserModel = require('./db/user')
 const IntensityLevel = require('./db/intensity_input')
 
 const app = express()
@@ -565,6 +565,59 @@ app.post('/updateTodaysCalorieAndTime', async (req, res) => {
         res.status(400).json({ success: false, result: "User Not Found" })
     }
 })
+app.post('/fetch-user', async (req, res) => {
+    try {
+      const { email } = req.body;
+      const user = await UserModel.findOne({ email });
+  
+      if (user) {
+        res.status(200).json(user);
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error.message);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
+  app.post('/update-user', async (req, res) => {
+    try {
+      const { name, email, phonenumber } = req.body;
+  
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { email },
+        { $set: { name, phonenumber } },
+        { new: true }
+      );
+  
+      if (updatedUser) {
+        res.status(200).json({ status: 'Ok', data: 'Updated' });
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+      console.error('Error updating user:', error.message);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+
+  app.post('/delete-user', async (req, res) => {
+    try {
+      const { email } = req.body;
+      const deletedUser = await UserModel.findOneAndDelete({ email });
+  
+      if (deletedUser) {
+        res.status(200).json({ status: 'Ok', message: 'User deleted successfully' });
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error.message);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

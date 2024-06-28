@@ -49,12 +49,12 @@ const OTPConfirmation2 = () => {
         style={styles.input}
         keyboardType="numeric"
       />
-      <CustomButton text="Verify OTP" onPress={onVerifyOTP} />
+      <CustomButton text="Verify OTP" onPress={onVerifyOTP}  />
         </>
       )
       :''}
       
-      <CustomButton text="Resend OTP" onPress={onResendOTP} type="SECONDARY" />
+      <CustomButton text="Resend OTP" onPress={onResendOTP} type="SECONDARY"  />
 
     </View>
   );

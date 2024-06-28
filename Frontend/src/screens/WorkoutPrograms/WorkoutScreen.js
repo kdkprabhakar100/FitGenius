@@ -93,7 +93,7 @@ import { default_ip_address } from "../../constant/constant";
         setCompleted([]);
         }}
           style={{
-            backgroundColor: "blue",
+            backgroundColor: "black",
             padding: 10,
             marginLeft: "auto",
             marginRight: "auto",

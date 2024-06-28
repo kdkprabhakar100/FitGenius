@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "FitGenius",
-    "slug": "FitGenius",
+    "name": "fitnessapp_withml",
+    "slug": "fitnessapp_withml",
     "version": "1.0.0",
+    "sdkVersion": "51.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+  
     "plugins": [
       [
         "@config-plugins/react-native-ble-plx",
@@ -34,6 +36,7 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+        
       },
       "permissions": [
         "android.permission.BLUETOOTH",
@@ -46,4 +49,5 @@
       "favicon": "./assets/favicon.png"
     }
   }
+  
 }

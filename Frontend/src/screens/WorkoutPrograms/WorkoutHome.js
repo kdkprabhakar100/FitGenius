@@ -67,7 +67,7 @@ useFocusEffect(
     <ScrollView style={{ marginTop: 40 }}>
       <View
         style={{
-          backgroundColor: "#872657",
+          backgroundColor: "#4863A0",
           padding: 10,
           height: 200,
           width: "100%",
@@ -152,7 +152,7 @@ useFocusEffect(
                 uri: "https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_842,ar_1.2,q_auto:eco,dpr_2,f_auto,fl_progressive/image/test/sku-card-widget/gold2.png",
               }}
             >
-              <Text style={{ color: 'white', fontSize: 36, textAlign: 'center', fontWeight: 'bold', paddingHorizontal: 10 }}>28 Days Workout Plan</Text>
+              <Text style={{ color: 'white', fontSize: 35, textAlign: 'center', fontWeight: 'bold', paddingHorizontal: 10 }}>28 Days Workout Plan</Text>
             </ImageBackground>
           </TouchableOpacity>
         </View>

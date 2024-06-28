@@ -80,29 +80,29 @@ const Login = () => {
 
   return (
     <ImageBackground source={require('../../../assets/push.jpg')} style={styles.backgroundImage}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContent}>
+    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.root}>
-          <Text style={styles.title}>Log-in</Text>
+          <Text style={styles.title}>Login Page</Text>
           {error && email === '' ? (
-            <Text style={{ color: 'red', left: -130 }}>
+            <Text style={{ color: 'white', left: -130 }}>
               *Enter Username
             </Text>
           ) : (
             ''
           )}
-          <CustomizedInput placeholder="Email" value={email} setValue={setEmail} keyboardType="email-address" />
+          <CustomizedInput placeholder="Email" value={email} setValue={setEmail} keyboardType="email-address"   />
           {error && password === '' ? (
-            <Text style={{ color: 'red', left: -130 }}>
+            <Text style={{ color: 'white', left: -130 }}>
               *Enter Password
             </Text>
           ) : (
             ''
           )}
-          <CustomizedInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+          <CustomizedInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}  />
 
           <CustomButton text="Log In" onPress={onLogInPressed} />
 
-          <CustomButton text="Forgot Password?" onPress={onForgotPasswordPressed} type="TERTIARY" />
+          <CustomButton text="Forgot Password?" onPress={onForgotPasswordPressed} type="TERTIARY"  />
 
           <CustomButton text="Don't have an account? Sign Up" onPress={onSignupPressed} type="TERTIARY" />
         </View>
@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 25,
-    padding: 20,
+    fontSize: 35,
+    padding: 40,
     fontWeight: 'bold',
     color: 'white'
   },

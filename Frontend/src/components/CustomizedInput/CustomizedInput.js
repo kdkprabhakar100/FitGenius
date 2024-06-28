@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'transparent',
         width: '100%',
-        borderColor: '#e8e8e8',
-        borderWidth: 1,
+        borderColor: 'white',
+        borderWidth: 2,
         borderRadius: 5,
         padding: 5,
         marginVertical: 5,

@@ -1,12 +1,4 @@
-import {
-    View,
-    Text,
-    TextInput,
-    StyleSheet,
-    ScrollView,
-    ImageBackground,
-    TextInputComponent,
-    Alert
+import {  View, Text, TextInput, StyleSheet, ScrollView, ImageBackground, TextInputComponent, Alert
   } from 'react-native';
 import React, {useState} from 'react';
 import CustomButton from '../../components/CustomButtons/CustomButton';
@@ -218,7 +210,7 @@ import { default_ip_address } from '../../constant/constant';
     phoneInputContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 10,
+      marginTop: 5,
     },
     countryCodeContainer: {
       flex: 1,

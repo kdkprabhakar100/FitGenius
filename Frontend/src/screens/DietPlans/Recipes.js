@@ -6,7 +6,7 @@ import { Picker } from '@react-native-picker/picker'
 import Slider from '@react-native-community/slider';
 
 const mealTypeItems = [
-  // {label: 'All Meals', value: '' },
+// {label: 'All Meals', value: '' },
   {label: 'Breakfast', value: 'breakfast' },
   {label: 'Brunch', value: 'brunch' },
   {label: 'Lunch/Dinner', value: 'lunch/dinner' },

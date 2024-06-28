@@ -218,26 +218,28 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   nutrientTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold',
   },
   nutrientQty: {
     fontSize: 14,
   },
   nutritionClaimsContainer: {
-    marginBottom: 16
+    marginBottom: 16,
+    fontSize:20,
   },
 
   nutrientsContainer: {
     borderWidth: 1,
     borderRadius: 16,
-    borderColor: '#fff',
+    borderColor: 'white',
     padding: 10,
   },
   nutritionFactContainerViews: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 5
+    marginBottom: 5,
+    fontSize: 5,
   },
   heading: {
     fontSize: 20,
@@ -246,15 +248,18 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   subHeading: {
-    fontSize: 16,
+    fontSize: 18,
     color: 'white'
   },
   ingredientsList: {
     marginTop: 5,
+    
   },
   ingredientText: {
     marginBottom: 5,
-    color: 'white'
+    color: 'white',
+    fontSize: 20,
+
   },
 });
 
