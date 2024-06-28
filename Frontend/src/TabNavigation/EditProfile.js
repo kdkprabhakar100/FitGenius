@@ -14,8 +14,8 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/fetch-user', {
-        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+      const response = await axios.post('http://192.168.18.22:4000/fetch-user', {
+        email: 'manushi.191621@ncit.edu.np', // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -34,7 +34,7 @@ const EditProfile = () => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/update-user', {
+      const response = await axios.post('http://192.168.18.22:4000/update-user', {
         name,
         email,
         phonenumber: phone,
@@ -53,8 +53,8 @@ const EditProfile = () => {
 
   const handleDeleteAccount = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/delete-user', {
-        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+      const response = await axios.post('http://192.168.18.22:4000/delete-user', {
+        email: 'manushi.191621@ncit.edu.np', // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
