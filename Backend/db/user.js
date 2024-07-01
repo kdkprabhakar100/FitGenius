@@ -39,4 +39,8 @@ const usersch = new mongoose.Schema({
     },
 })
 const usermodel = mongoose.model('user', usersch)
+<<<<<<< HEAD
 module.exports = usermodel
+=======
+module.exports = usermodel
+>>>>>>> faf7ae28b1c54f834bd736f143f2af31c8315941

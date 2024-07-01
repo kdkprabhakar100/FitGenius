@@ -75,4 +75,3 @@ const StackNavigator = () => {
 }
 
 export default StackNavigator
-
