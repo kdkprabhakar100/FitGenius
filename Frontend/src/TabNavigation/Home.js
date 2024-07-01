@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, Dimensions, StyleSheet, Text } from 'react-native';
+import { View, ScrollView, Dimensions, StyleSheet } from 'react-native';
 import Header from '../components/Header/Header';
 import Banner from '../components/Banners/Banner';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,37 +16,16 @@ const titles = {
 const Home = () => {
   const { enableDarkTheme } = useTheme(); // Access the theme state
   const [name, setName] = useState('');
-  const [quote, setQuote] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://192.168.18.8:4000/random-quote');
-        const data = await response.json();
-        if (data && data.text) {
-          setQuote(data.text); // Assuming 'text' is the key for quote text in the response
-        }
-      } catch (error) {
-        console.error('Error fetching random quote:', error);
+    const getData = async () => {
+      let data = await AsyncStorage.getItem('user');
+      let parseData = JSON.parse(data);
+      if (parseData) {
+        setName(parseData.name);
       }
     };
-
-    fetchData();
-
-    // Example of fetching user data from AsyncStorage
-    const fetchUserData = async () => {
-      try {
-        let data = await AsyncStorage.getItem('user');
-        let parseData = JSON.parse(data);
-        if (parseData) {
-          setName(parseData.name);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
+    getData();
   }, []);
 
   const dynamicStyles = {
@@ -62,7 +41,7 @@ const Home = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={dynamicStyles.container}>
-        <Header name={name} quote={quote} />
+        <Header name={name} />
         <View style={styles.banner}>
           <Banner
             backgroundColor={enableDarkTheme ? '#333' : '#f0f0f0'}

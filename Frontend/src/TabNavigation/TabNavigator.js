@@ -7,7 +7,7 @@ import Home from './Home'
 import Profile from './Profile'
 import SmartwatchStat from './SmartwatchStat'
 import StepCount from './StepCount'
-
+import NutritionTrack from './NutritionTrack'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Tab = createBottomTabNavigator()
@@ -17,6 +17,7 @@ const tabAttributes = [
   {name: 'Stats', label: 'Stats', activeIcon: 'stats-chart', inActiveIcon: 'stats-chart-outline', component: SmartwatchStat},
   {name: 'Profile', label: 'Profile', activeIcon: 'person', inActiveIcon: 'person-outline', component: Profile},
   {name: 'Steps', label: 'Steps', activeIcon: 'walk', inActiveIcon: 'walk-outline', component: StepCount},
+  {name: 'Nutrition', label: 'Nutrition', activeIcon: 'restaurant', inActiveIcon: 'restaurant-outline', component: NutritionTrack},
 ]
 
 const TabNavigator = () => {
