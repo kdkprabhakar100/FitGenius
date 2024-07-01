@@ -42,4 +42,3 @@ print(predicted_df.to_json(orient='records'))
 
 # %%
 
-
