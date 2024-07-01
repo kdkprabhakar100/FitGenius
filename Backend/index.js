@@ -628,6 +628,10 @@ app.post('/fetch-user', async (req, res) => {
     }
   });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64e1e6dafb2d1235acd16550b5543aa224554f67
 // // Example backend route setup for POST method
 // app.post('/random-quote', async (req, res) => {
 //     try {
@@ -656,6 +660,13 @@ app.post('/random-quote', (req, res) => {
 });
 
 
+<<<<<<< HEAD
+=======
+
+
+  
+
+>>>>>>> 64e1e6dafb2d1235acd16550b5543aa224554f67
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
