@@ -32,3 +32,4 @@ const edamam2Sch = new mongoose.Schema({
 )
 const edamam2Modal = mongoose.model('edamam2', edamam2Sch)
 module.exports = edamam2Modal
+
