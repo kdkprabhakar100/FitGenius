@@ -39,5 +39,4 @@ predicted_df = pd.DataFrame({
 })
 print(predicted_df.to_json(orient='records'))
 
-
 # %%
