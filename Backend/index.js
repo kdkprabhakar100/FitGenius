@@ -12,6 +12,15 @@ const path = require('path')
 const sendverifymail = require('./mail/verifymail')
 const spawner = require('child_process').spawn
 const UserModel = require('./db/user')
+// const userquote = require('./db/quote')
+const quotes = require('./db/quotes');
+
+
+
+
+
+// const Quote =require('./db/quote')
+
 const IntensityLevel = require('./db/intensity_input')
 
 const app = express()
@@ -565,6 +574,7 @@ app.post('/updateTodaysCalorieAndTime', async (req, res) => {
         res.status(400).json({ success: false, result: "User Not Found" })
     }
 })
+
 app.post('/fetch-user', async (req, res) => {
     try {
       const { email } = req.body;
@@ -618,7 +628,37 @@ app.post('/fetch-user', async (req, res) => {
     }
   });
 
+// // Example backend route setup for POST method
+// app.post('/random-quote', async (req, res) => {
+//     try {
+//         const count = await Quote.countDocuments();
+//         if (count === 0) {
+//             return res.status(404).send('No quotes found');
+//         }
 
+//         const randomQuote = await Quote.aggregate([{ $sample: { size: 1 } }]);
+//         if (randomQuote.length > 0) {
+//             res.send(randomQuote[0].text); // Send only the text of the quote as plain text
+//         } else {
+//             res.status(404).send('Quote not found');
+//         }
+//     } catch (err) {
+//         console.error('Error fetching random quote:', err);
+//         res.status(500).send('Server error');
+//     }
+// });
+
+// Endpoint to fetch a random quote
+app.post('/random-quote', (req, res) => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
+    res.send(randomQuote);
+});
+
+
+
+
+  
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

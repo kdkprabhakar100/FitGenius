@@ -15,7 +15,7 @@ const EditProfile = () => {
   const fetchUserData = async () => {
     try {
       const response = await axios.post('http://192.168.18.8:4000/fetch-user', {
-        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+        email: 'manushipaudel00@gmail.com', // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -54,7 +54,7 @@ const EditProfile = () => {
   const handleDeleteAccount = async () => {
     try {
       const response = await axios.post('http://192.168.18.8:4000/delete-user', {
-        email: 'kdkprabhakar100@gmail.com', // Replace with authenticated user's email
+        email: 'manushipaudel00@gmail.com', // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -112,12 +112,12 @@ const EditProfile = () => {
           color="#007bff"
           style={styles.saveButton}
         />
-        <Button
+        {/* <Button
           title="Delete Account"
           onPress={handleDeleteAccount}
           color="#dc3545"
           style={styles.deleteButton}
-        />
+        /> */}
       </View>
     </View>
   );

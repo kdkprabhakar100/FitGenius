@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LinearRegression
 
-#Load dataset 
+#Load dataset
 data_file_path = '/Users/manushipaudel/Desktop/FITNESS/FitnessApp/Backend/dataset.csv'
 df = pd.read_csv(data_file_path)
 
