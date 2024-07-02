@@ -14,8 +14,8 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/fetch-user', {
-        email: 'manushipaudel00@gmail.com', // Replace with authenticated user's email
+      const response = await axios.post('http://192.168.1.70:8081/fetch-user', {
+        email: 'manushi.191621@ncit.edu.com', // Replace with authenticated user's email
       });
 
       if (response.status === 200) {

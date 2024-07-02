@@ -13,10 +13,11 @@ const sendverifymail = require('./mail/verifymail')
 const spawner = require('child_process').spawn
 const UserModel = require('./db/user')
 // const userquote = require('./db/quote')
-const quotes = require('./db/quotes');
-
-
-
+const quotes = require('./db/quotes')
+const FoodItem = require('./db/foodItemSchema')
+const axios = require('axios');
+require('dotenv').config();
+require('dotenv').config();
 
 
 // const Quote =require('./db/quote')
@@ -628,10 +629,7 @@ app.post('/fetch-user', async (req, res) => {
     }
   });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 64e1e6dafb2d1235acd16550b5543aa224554f67
 // // Example backend route setup for POST method
 // app.post('/random-quote', async (req, res) => {
 //     try {
@@ -659,14 +657,72 @@ app.post('/random-quote', (req, res) => {
     res.send(randomQuote);
 });
 
+app.get('/api/food/search', async (req, res) => {
+    const query = req.query.q;
+    if (!query) {
+        return res.status(400).json({ error: 'Query parameter "q" is required' });
+    }
 
-<<<<<<< HEAD
-=======
+    try {
+        const response = await axios.get('https://api.edamam.com/api/food-database/v2/parser', {
+            params: {
+                app_id: process.env.EDAMAM_APP_ID,
+                app_key: process.env.EDAMAM_APP_KEY,
+                ingr: query,
+            },
+            headers: {
+                'Accept': 'application/json',
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/api/food', async (req, res) => {
+    try {
+        // Extract fields from req.body and include createdAt
+        const { label, brand, kcal, quantity } = req.body;
+        const foodItem = new FoodItem({
+            label,
+            brand: brand || 'Generic', // Default brand to 'Generic' if not provided
+            kcal,
+            quantity,
+            createdAt: new Date() // Set createdAt to current date and time
+        });
+
+        // Save the new food item
+        await foodItem.save();
+
+        // Send the saved food item as response
+        res.status(201).json(foodItem.toObject());
+    } catch (error) {
+        console.error('Error saving food item:', error);
+        res.status(400).send(error);
+    }
+});
 
 
   
+app.get('/api/food/daily-calories', async (req, res) => {
+    try {
+        // Calculate today's start date
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
 
->>>>>>> 64e1e6dafb2d1235acd16550b5543aa224554f67
+        // Query for food items created today and calculate total calories
+        const foodItems = await FoodItem.find({ createdAt: { $gte: today } });
+        const totalCalories = foodItems.reduce((sum, item) => sum + item.kcal * item.quantity, 0);
+
+        res.json({ totalCalories });
+    } catch (error) {
+        console.error('Error fetching daily calories:', error);
+        res.status(500).send(error);
+    }
+});
+
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
