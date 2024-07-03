@@ -1,4 +1,4 @@
-package com.anonymous.fitnessapp_withml;
+package com.anonymous.FitGenius;
 
 import android.os.Build;
 import android.os.Bundle;

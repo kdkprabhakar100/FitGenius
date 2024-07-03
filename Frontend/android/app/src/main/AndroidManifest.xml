@@ -33,7 +33,7 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="com.anonymous.fitnessapp_withml"/>
+        <data android:scheme="com.anonymous.FitGenius"/>
         <data android:scheme="exp+fitnessappwithml"/>
       </intent-filter>
     </activity>

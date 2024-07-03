@@ -81,9 +81,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.fitnessapp_withml'
+    namespace 'com.anonymous.FitGenius'
     defaultConfig {
-        applicationId 'com.anonymous.fitnessapp_withml'
+        applicationId 'com.anonymous.FitGenius'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

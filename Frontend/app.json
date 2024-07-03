@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fitnessapp_withml",
-    "slug": "fitnessapp_withml",
+    "name": "FitGenius",
+    "slug": "FitGenius",
     "version": "1.0.0",
     "sdkVersion": "51.0.0",
     "orientation": "portrait",
@@ -43,7 +43,7 @@
         "android.permission.BLUETOOTH_ADMIN",
         "android.permission.BLUETOOTH_CONNECT"
       ],
-      "package": "com.anonymous.fitnessapp_withml"
+      "package": "com.anonymous.FitGenius"
     },
     "web": {
       "favicon": "./assets/favicon.png"

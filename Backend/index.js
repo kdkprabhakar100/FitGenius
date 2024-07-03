@@ -630,25 +630,7 @@ app.post('/fetch-user', async (req, res) => {
   });
 
 
-// // Example backend route setup for POST method
-// app.post('/random-quote', async (req, res) => {
-//     try {
-//         const count = await Quote.countDocuments();
-//         if (count === 0) {
-//             return res.status(404).send('No quotes found');
-//         }
 
-//         const randomQuote = await Quote.aggregate([{ $sample: { size: 1 } }]);
-//         if (randomQuote.length > 0) {
-//             res.send(randomQuote[0].text); // Send only the text of the quote as plain text
-//         } else {
-//             res.status(404).send('Quote not found');
-//         }
-//     } catch (err) {
-//         console.error('Error fetching random quote:', err);
-//         res.status(500).send('Server error');
-//     }
-// });
 
 // Endpoint to fetch a random quote
 app.post('/random-quote', (req, res) => {

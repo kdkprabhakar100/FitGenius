@@ -11,7 +11,7 @@ const Header = ({ name }) => {
 
   const fetchRandomQuote = async () => {
     try {
-      const response = await fetch('http://192.168.1.70:4000/random-quote', {
+      const response = await fetch('http://192.168.18.22:4000/random-quote', {
         method: 'POST', // Using POST method as per your requirement
         headers: {
           'Content-Type': 'text/plain', // Set content type to text/plain
