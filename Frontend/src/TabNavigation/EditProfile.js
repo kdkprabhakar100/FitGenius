@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 import profile from '../../assets/profile.jpg';
 import axios from 'axios';
+import { default_ip_address } from '../../src/constant/constant'; // Adjust the path as needed
 
 const EditProfile = () => {
   const [name, setName] = useState('');
@@ -14,7 +15,7 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/fetch-user', {
+      const response = await axios.post('${default_ip_address}/fetch-user', {
         email: 'manushipaudel00@gmail.com', // Replace with authenticated user's email
       });
 
