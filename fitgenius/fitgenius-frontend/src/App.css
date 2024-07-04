@@ -1,0 +1,56 @@
+/* src/App.css */
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #fef3eb, #fad4c0);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem; /* Larger font size */
+  margin-bottom: 20px; /* Some bottom margin for separation */
+  color: #e07b6c; /* Darker shade of the gradient color for contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #fef3eb, #fad4c0); /* same gradient as the background */
+  border-radius: 8px; /* Rounder corners for the entire table */
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  border-radius: 8px; /* Rounder corners for each cell */
+}
+
+th {
+  background-color: #f3c0a5; /* slightly darker shade for the headers */
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #ffffff;
+}
+
+tr:nth-child(even) td {
+  background-color: #f9e3d7; /* lighter stripe color */
+}
+
+tr:hover td {
+  background-color: #fff8e1; /* light yellow hover effect */
+}
+
+tr:hover th {
+  background-color: #e0b19b; /* hover effect for headers */
+  color: #fff;
+}
