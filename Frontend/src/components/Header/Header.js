@@ -1,8 +1,10 @@
+// src/components/Header/Header.js
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Profile from '../../../assets/profile.jpg';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
+import { default_ip_address } from '../../constant/constant'; // Adjust the path as needed
 
 const Header = ({ name }) => {
   const navigation = useNavigation();
@@ -11,7 +13,7 @@ const Header = ({ name }) => {
 
   const fetchRandomQuote = async () => {
     try {
-      const response = await fetch('http://192.168.18.22:4000/random-quote', {
+      const response = await fetch(`${default_ip_address}/random-quote`, {
         method: 'POST', // Using POST method as per your requirement
         headers: {
           'Content-Type': 'text/plain', // Set content type to text/plain
@@ -101,7 +103,8 @@ const styles = StyleSheet.create({
   },
   quoteText: {
     fontSize: 14,
-    fontStyle: 'italic',
+    fontStyle: '',
+    
     // color: '#b3b3b3', // Remove this line to ensure the text color is white (#fff)
   },
 });

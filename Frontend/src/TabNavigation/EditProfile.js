@@ -1,7 +1,9 @@
+// src/components/EditProfile/EditProfile.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 import profile from '../../assets/profile.jpg';
 import axios from 'axios';
+import { default_ip_address, default_email } from '../constant/constant';
 
 const EditProfile = () => {
   const [name, setName] = useState('');
@@ -14,8 +16,8 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('http://192.168.1.70:8081/fetch-user', {
-        email: 'manushi.191621@ncit.edu.com', // Replace with authenticated user's email
+      const response = await axios.post(`${default_ip_address}/fetch-user`, {
+        email: default_email, // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -34,7 +36,7 @@ const EditProfile = () => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/update-user', {
+      const response = await axios.post(`${default_ip_address}/update-user`, {
         name,
         email,
         phonenumber: phone,
@@ -53,8 +55,8 @@ const EditProfile = () => {
 
   const handleDeleteAccount = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/delete-user', {
-        email: 'manushipaudel00@gmail.com', // Replace with authenticated user's email
+      const response = await axios.post(`${default_ip_address}/delete-user`, {
+        email: default_email, // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
