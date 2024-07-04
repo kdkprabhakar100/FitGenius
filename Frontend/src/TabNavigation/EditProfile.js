@@ -1,7 +1,9 @@
+// src/components/EditProfile/EditProfile.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 import profile from '../../assets/profile.jpg';
 import axios from 'axios';
+import { default_ip_address, default_email } from '../constant/constant';
 
 const EditProfile = () => {
   const [name, setName] = useState('');
@@ -14,8 +16,8 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('http://192.168.18.22:4000/fetch-user', {
-        email: 'manushi.191621@ncit.edu.np', // Replace with authenticated user's email
+      const response = await axios.post(`${default_ip_address}/fetch-user`, {
+        email: default_email, // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -34,7 +36,7 @@ const EditProfile = () => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await axios.post('http://192.168.18.22:4000/update-user', {
+      const response = await axios.post(`${default_ip_address}/update-user`, {
         name,
         email,
         phonenumber: phone,
@@ -53,8 +55,8 @@ const EditProfile = () => {
 
   const handleDeleteAccount = async () => {
     try {
-      const response = await axios.post('http://192.168.18.22:4000/delete-user', {
-        email: 'manushi.191621@ncit.edu.np', // Replace with authenticated user's email
+      const response = await axios.post(`${default_ip_address}/delete-user`, {
+        email: default_email, // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
@@ -112,12 +114,12 @@ const EditProfile = () => {
           color="#007bff"
           style={styles.saveButton}
         />
-        <Button
+        {/* <Button
           title="Delete Account"
           onPress={handleDeleteAccount}
           color="#dc3545"
           style={styles.deleteButton}
-        />
+        /> */}
       </View>
     </View>
   );
