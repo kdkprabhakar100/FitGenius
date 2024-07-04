@@ -1,3 +1,4 @@
+// src/components/Header/Header.js
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Profile from '../../../assets/profile.jpg';
@@ -12,7 +13,7 @@ const Header = ({ name }) => {
 
   const fetchRandomQuote = async () => {
     try {
-      const response = await fetch('${default_ip_address}/random-quote', {
+      const response = await fetch(`${default_ip_address}/random-quote`, {
         method: 'POST', // Using POST method as per your requirement
         headers: {
           'Content-Type': 'text/plain', // Set content type to text/plain
@@ -102,7 +103,8 @@ const styles = StyleSheet.create({
   },
   quoteText: {
     fontSize: 14,
-    fontStyle: 'italic',
+    fontStyle: '',
+    
     // color: '#b3b3b3', // Remove this line to ensure the text color is white (#fff)
   },
 });

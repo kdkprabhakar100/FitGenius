@@ -23,9 +23,8 @@ require('dotenv').config();
 // const Quote =require('./db/quote')
 
 const IntensityLevel = require('./db/intensity_input')
-
-const app = express()
-const port = 4000
+const app = express();
+const port = 4000;
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors())
@@ -703,7 +702,6 @@ app.get('/api/food/daily-calories', async (req, res) => {
         res.status(500).send(error);
     }
 });
-
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

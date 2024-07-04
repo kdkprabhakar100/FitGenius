@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, FlatList, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import { default_ip_address } from '../constant/constant'; // Adjust the path as needed
 
 const FoodSearchScreen = () => {
   const [query, setQuery] = useState('');
@@ -10,21 +11,23 @@ const FoodSearchScreen = () => {
   // Function to search for food
   const searchFood = async () => {
     try {
-      const response = await axios.get(`http:/192.168.18.22:4000/api/food/search?q=${query}`);
+      const response = await axios.get(`${default_ip_address}/api/food/search?q=${query}`);
       console.log('Edamam API response:', response.data); // Log the response data
       setSearchResults(response.data.hints.map(hint => hint.food)); // Assuming response.data.hints contains food items
     } catch (error) {
-      console.error(error);
+      console.error('Error searching for food:', error);
+      // Handle error: Display an error message to the user
     }
   };
 
   // Function to fetch daily calories
   const fetchDailyCalories = async () => {
     try {
-      const response = await axios.get('http:/192.168.18.22:4000/api/food/daily-calories');
+      const response = await axios.get(`${default_ip_address}/api/food/daily-calories`);
       setDailyCalories(response.data.totalCalories);
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching daily calories:', error);
+      // Handle error: Display an error message to the user
     }
   };
 
@@ -34,15 +37,16 @@ const FoodSearchScreen = () => {
       const foodItem = {
         label: item.label,
         brand: item.brand || 'Generic',
-        kcal: item.nutrients?.ENERC_KCAL, // Ensure this path is correct based on the logged response
+        kcal: item.nutrients?.ENERC_KCAL || 0, // Ensure this path is correct based on the logged response
         quantity: 1 // or another appropriate value
       };
       console.log('Sending data to server:', foodItem); // Log the data being sent to the server
-      const response = await axios.post('http:/192.168.18.22:4000/api/food', foodItem);
+      const response = await axios.post(`${default_ip_address}/api/food`, foodItem);
       console.log('Server response:', response.data); // Log server response
       fetchDailyCalories(); // Refresh daily calories
     } catch (error) {
-      console.error(error);
+      console.error('Error adding to daily intake:', error);
+      // Handle error: Display an error message to the user
     }
   };
 
@@ -81,6 +85,7 @@ const FoodSearchScreen = () => {
             <Text style={styles.foodLabel}>{item.label}</Text>
             <Text style={styles.foodBrand}>{item.brand || 'Generic'}</Text>
             <Text style={styles.foodCalories}>Calories: {item.nutrients?.ENERC_KCAL || 'Not available'}</Text>
+            <Text style={styles.foodWeight}>Weight: {item.servingSizes?.[0]?.quantity || '100 grams'} {item.servingSizes?.[0]?.label || ''}</Text>
             <TouchableOpacity style={styles.addButton} onPress={() => addToDailyIntake(item)}>
               <Text style={styles.addButtonText}>Add to Daily Intake</Text>
             </TouchableOpacity>
@@ -116,28 +121,32 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   searchContainer: {
-  marginBottom: 70,
-  elevation: 12,
-  flexDirection: 'row',
-  alignItems: 'center',
-  backgroundColor: 'white',
-  borderRadius: 1,
-  shadowOpacity: 2,
-  shadowRadius: 4,
-  paddingHorizontal: 10,
-  paddingVertical: 15,
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 3,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
   },
   searchInput: {
     flex: 1,
+    height: 40,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
-    padding: 10,
+    paddingHorizontal: 10,
     marginRight: 10,
   },
   searchButton: {
     backgroundColor: 'blue',
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 5,
   },
   searchButtonText: {
@@ -149,7 +158,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 5,
     marginBottom: 10,
-    elevation: 2, 
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
   foodLabel: {
     fontSize: 16,
@@ -163,10 +176,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#555',
   },
+  foodWeight: {
+    fontSize: 14,
+    color: '#555',
+  },
   addButton: {
     marginTop: 10,
     backgroundColor: '#17a2b8',
-    padding: 10,
+    paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
   },

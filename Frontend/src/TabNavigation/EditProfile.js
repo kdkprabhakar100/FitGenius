@@ -1,3 +1,4 @@
+// src/components/EditProfile/EditProfile.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 import profile from '../../assets/profile.jpg';
@@ -15,7 +16,7 @@ const EditProfile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post('${default_ip_address}/fetch-user', {
+      const response = await axios.post(`${default_ip_address}/fetch-user`, {
         email: default_email, // Replace with authenticated user's email
       });
 
@@ -35,7 +36,7 @@ const EditProfile = () => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/update-user', {
+      const response = await axios.post(`${default_ip_address}/update-user`, {
         name,
         email,
         phonenumber: phone,
@@ -54,8 +55,8 @@ const EditProfile = () => {
 
   const handleDeleteAccount = async () => {
     try {
-      const response = await axios.post('http://192.168.18.8:4000/delete-user', {
-        email: default_email, // constant.js
+      const response = await axios.post(`${default_ip_address}/delete-user`, {
+        email: default_email, // Replace with authenticated user's email
       });
 
       if (response.status === 200) {
